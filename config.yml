@@ -2,6 +2,7 @@ SETTINGS:
   BROWSER: "Chrome" # Available options: Chrome, Firefox
   CAPTCHA_API_KEY: "" # Captcha API key from 2Captcha service
   PROXY_API: "" # Proxy API key
+  PROXY_FILE: "proxy.txt"
   NO_INTERFACE: False # If you want to hide browser, set value to: True
   DOWNLOAD_DIR: "/usr/dir/example" # Set directory where you want to download files
   # input/output csv file
