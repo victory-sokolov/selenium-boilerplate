@@ -1,11 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from utils.helpers import read_configs, get_random_file_entry
+
 from utils.Config import Config
+from utils.helpers import get_random_file_entry, read_configs
 
 
 class Driver:
