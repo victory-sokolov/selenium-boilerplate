@@ -21,6 +21,8 @@ class Driver:
         options.add_argument('--ignore-certificate-errors')
         options.add_argument('--disable-notifications')
         options.add_argument('--verbose')
+        options.add_argument('—no-sandbox')
+        options.add_argument('—disable-gpu')
         options.add_argument("user-data-dir=selenium")
         options.add_argument(f'--proxy-server=')
         # Load Chrome extension
