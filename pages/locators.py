@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 
 
-class LoginPageLocator:
-    pass
+class LoginPageLocators:
+    USERNAME = (By.ID, "username")
+    PASSWORD = (By.ID, "password")
+    SIGN_IN_BTN = (By.ID, "login-submit")
 
-class MainPageLocator:
+class MainPageLocators:
     pass
