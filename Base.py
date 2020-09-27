@@ -2,24 +2,28 @@ import os
 from random import randint
 from time import sleep
 
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+from pages.base_page import BasePage
+from pages.locators import MainPageLocators
+from pages.login_page import LoginPage
+from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.support.wait import WebDriverWait
-
-from utils.Config import Config
 from utils.Driver import Driver
 from utils.helpers import get_file_entries
 
 
-class Base:
+class Base(BasePage):
 
-    def __init__(self, url, config: Config):
+    def __init__(self, driver: Driver):
         self.url = url
-        self.config = config
-        self.driver = Driver.chrome() if self.config.BROWSER == 'Chrome' else Driver.firefox()
+        self.locators = MainPageLocators
+        super().__init__(driver=driver)
 
-    @classmethod
-    def factory(cls, url):
-        base = cls(url, Config)
-        return base
+    def auth(self):
+        self.driver.get(f'{self.url}/auth')
+        LoginPage(self.driver).sign_in()
+
+
+driver = Driver.chrome() if Config.BROWSER == 'Chrome' else Driver.firefox()
+
+base = Base(driver)
+base.auth()
