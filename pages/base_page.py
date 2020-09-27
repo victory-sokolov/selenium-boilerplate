@@ -8,7 +8,7 @@ from utils.Driver import Driver
 
 class BasePage:
 
-    def __init__(self, driver, url='https://www.redbubble.com/'):
+    def __init__(self, driver, url='https://www.example.com/'):
         self.url = url
         self.driver = driver
 
