@@ -1,6 +1,8 @@
-import random
-import yaml
 import csv
+import random
+
+import yaml
+
 
 def read_configs():
     params = {}
@@ -24,3 +26,11 @@ def get_random_file_entry(file_name: str) -> str:
         csv_reader = csv.reader(file)
         entry_list = [line[0] for line in csv_reader]
     return random.choice(entry_list)
+
+
+def slow_connection_simulation(driver, latency=10):
+    driver.set_network_conditions(
+        offline=False,
+        latency=latency,
+        download_throughput=500 * 1024,
+        upload_throughput=500 * 1024)
