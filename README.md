@@ -1,1 +1,1 @@
-# selenium-boilerplate
+# Selenium Boilerplate for automation
