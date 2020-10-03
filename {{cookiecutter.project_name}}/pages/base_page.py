@@ -1,11 +1,12 @@
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
+from config import Config
+from selenium.common.exceptions import (ElementClickInterceptedException,
+                                        TimeoutException)
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 from utils.Driver import Driver
-from config import Config
+
 
 class BasePage:
 
@@ -22,11 +23,31 @@ class BasePage:
         return self.driver.find_element(*locator)
 
     def wait_element(self, *locator, delay=10):
-        
+
         try:
             return WebDriverWait(self.driver, delay).until(
                 EC.presence_of_element_located((locator)))
         except TimeoutException:
             print("\n * ELEMENT NOT FOUND WITHIN GIVEN TIME! --> %s" %
+                  (locator[1]))
+            self.driver.quit()
+
+    def wait_until_element_is_clickable(self, locator, delay=10):
+        try:
+            return WebDriverWait(self.driver, delay).until(
+                EC.element_to_be_clickable((locator))
+            )
+        except ElementClickInterceptedException:
+            print("\n * ELEMENT IS NOT CLICKABLE! --> %s" %
+                  (locator[1]))
+            self.driver.quit()
+
+    def wait_until_element_is_invisible(self, locator, delay=10):
+        try:
+            return WebDriverWait(self.driver, delay).until(
+                EC.invisibility_of_element_located((locator))
+            )
+        except:
+            print("\n * ELEMENT IS FOUND ON THE PAGE! --> %s" %
                   (locator[1]))
             self.driver.quit()
