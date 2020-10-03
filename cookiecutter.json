@@ -2,7 +2,8 @@
     "full_name": "Viktor Sokolov",
     "email": "viktorsokolov.and@gmail.com",
     "github_username": "victory-sokolov",
-    "file_name": "{{cookiecutter.project_name}}",
+    "project_name": "Selenium Boilerplate",
+    "file_name": "{{cookiecutter.file_name}}",
     "app_name": "{{cookiecutter.project_name.lower().replace('-', '_').replace(' ', '_')}}",
     "python_version": [
         "3.8",
