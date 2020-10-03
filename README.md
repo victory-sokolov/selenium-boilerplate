@@ -8,7 +8,7 @@ pip3 install cookiecutter
 cookiecutter https://github.com/victory-sokolov/selenium-boilerplate.git
 ```
 
-### Build single file executable
+### Build single executable file 
 
 ```
 pyinstaller main.py -F --onefile -n <FileName>
