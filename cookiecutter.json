@@ -3,6 +3,7 @@
     "email": "viktorsokolov.and@gmail.com",
     "github_username": "victory-sokolov",
     "project_name": "Selenium Boilerplate",
+    "file_name": "{{cookiecutter.project_name}}",
     "app_name": "{{cookiecutter.project_name.lower().replace('-', '_').replace(' ', '_')}}",
     "project_short_description": "Selenium automation",
     "python_version": [
