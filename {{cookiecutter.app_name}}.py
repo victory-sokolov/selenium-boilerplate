@@ -2,14 +2,16 @@ import os
 from random import randint
 from time import sleep
 
+from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pages.base_page import BasePage
 from pages.locators import MainPageLocators
 from pages.login_page import LoginPage
-from selenium.common.exceptions import TimeoutException, WebDriverException
-from selenium.webdriver.support.wait import WebDriverWait
+
 from utils.Driver import Driver
 from utils.helpers import get_file_entries
-from utils.Config import Config
+from config import Config
 
 class Base(BasePage):
 
