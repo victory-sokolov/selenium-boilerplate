@@ -15,7 +15,7 @@ class LoginPage(BasePage):
         self.find_element(*self.locator.PASSWORD).send_keys([password])
 
     def click_login_button(self):
-        self.find_element(*self.locator.LOGIN_BTN).click()
+        self.find_element(*self.locator.SIGN_IN_BTN).click()
 
     def sign_in(self):
 		# get credetials here
