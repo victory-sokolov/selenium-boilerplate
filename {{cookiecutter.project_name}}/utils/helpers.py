@@ -15,10 +15,22 @@ def read_configs():
 
 
 def get_file_entries(file_name: str):
-    with open(file_name, 'r', encoding="utf-8-sig") as file:
+    """
+        Read csv file and construct dictionary from data, where:
+        1.) key   -> csv header
+        2.) value -> csv column value
+    """
+    with open(file_name, 'r', encoding="utf-8") as file:
         csv_reader = csv.reader(file)
-        entry_list = [line[0] for line in csv_reader]
-    return entry_list
+
+        header = next(csv_reader, None)
+        data = {i.replace(' ', '_'): [] for i in header}
+
+        keys = data.keys()
+        for line in csv_reader:
+            for key, i in zip(keys, line):
+                data[key].append(i)
+        return data
 
 
 def get_random_file_entry(file_name: str) -> str:
