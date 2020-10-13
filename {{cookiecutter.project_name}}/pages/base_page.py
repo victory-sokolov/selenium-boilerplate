@@ -1,5 +1,5 @@
 from config import Config
-from selenium.common.exceptions import (ElementClickInterceptedException,
+from selenium.common.exceptions import (ElementClickInterceptedException, NoSuchElementException,
                                         TimeoutException)
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
@@ -51,3 +51,10 @@ class BasePage:
             print("\n * ELEMENT IS FOUND ON THE PAGE! --> %s" %
                   (locator[1]))
             self.driver.quit()
+
+    def is_element_present(self, *locator):
+        try:
+            self.driver.find_element(*locator)
+        except NoSuchElementException:
+            return False
+        return True
