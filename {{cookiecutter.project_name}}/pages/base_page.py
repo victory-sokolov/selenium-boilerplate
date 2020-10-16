@@ -14,8 +14,9 @@ class BasePage:
         self.url = url
         self.driver = driver
 
-    def hover(self, *locator):
+    def hover(self, *locator, delay=10):
         element = self.find_element(*locator)
+        self.driver.implicitly_wait(delay)
         hover = ActionChains(self.driver).move_to_element(element)
         hover.perform()
 
@@ -23,7 +24,6 @@ class BasePage:
         return self.driver.find_element(*locator)
 
     def wait_element(self, *locator, delay=10):
-
         try:
             return WebDriverWait(self.driver, delay).until(
                 EC.presence_of_element_located((locator)))
@@ -52,7 +52,8 @@ class BasePage:
                   (locator[1]))
             self.driver.quit()
 
-    def is_element_present(self, *locator):
+    def is_element_present(self, *locator, delay=10):
+        self.driver.implicitly_wait(delay)
         try:
             self.driver.find_element(*locator)
         except NoSuchElementException:
