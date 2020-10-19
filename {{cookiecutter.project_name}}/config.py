@@ -1,11 +1,12 @@
 import os
 
 from dotenv import load_dotenv
-from utils.helpers import read_configs
 
 load_dotenv()
 
+
 class Config:
+    VERSION = 0.1
     BROWSER = os.getenv('BROWSER')
     CAPTCHA_KEY = os.getenv('CAPTCHA_API_KEY')
     PROXY_API = os.getenv('PROXY_API')
