@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class Config:
     VERSION = 0.1
     BROWSER = os.getenv('BROWSER')
