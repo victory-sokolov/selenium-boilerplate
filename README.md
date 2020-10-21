@@ -13,3 +13,8 @@ cookiecutter https://github.com/victory-sokolov/selenium-boilerplate.git
 ```
 pyinstaller main.py -F --onefile -n <FileName>
 ```
+
+### Create executable using Make
+```
+make compile file="main.py" name="OutputFile"
+```
