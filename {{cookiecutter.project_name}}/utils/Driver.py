@@ -4,8 +4,8 @@ from selenium.webdriver.firefox.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
-from utils.Config import Config
-from utils.helpers import get_random_file_entry, read_configs
+from config import Config
+from utils.helpers import get_random_file_entry
 
 
 class Driver:
